@@ -10,4 +10,8 @@ This repository contains a simple app for experimenting with authentication and 
 
 ## Usage
 
-Start all the containers with `./scripts/startup.sh`. Stop them, removing all volumes and cleaning up, with `teardown.sh`. `./scripts/reset.sh` will stop all containers (as well as doing the other clean-up) and then restart them.
+Start all the containers with `./scripts/startup.sh`.
+
+Stop them, removing all volumes and cleaning up, with `teardown.sh`.
+
+`./scripts/reset.sh` will stop all containers (as well as doing the other clean-up) and then restart them.
