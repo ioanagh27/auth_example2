@@ -2,7 +2,5 @@ INSERT INTO post (
     title,
     text
 ) VALUES (
-    'First', 'First post!'
-), (
-    'Second', 'Second post!'
-)
+    'Welcome!', 'This is a highly-exclusive social network, open only to the elite.'
+);
