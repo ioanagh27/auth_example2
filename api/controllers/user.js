@@ -1,21 +1,35 @@
+const bcrypt = require("bcrypt");
+
 const User = require("../models/user");
 
 async function login(req, res) {
 
-    const username = req.body.username;
-    const password = req.body.password;
+    try {
+        const username = req.body.username;
+        const password = req.body.password;
+    
+        const user = await User.getOneByUsername(username);
+    
+        // Check here if the password matches the hash
+        const authenticated = await bcrypt.compare(password, user.password);
 
-    const user = await User.getOneByUsername(username);
+        if (authenticated) {
+            res.json({
+                success: true
+            })
+        } else {
+            throw "Credentials didn't match."
+        }
 
-    // Check here if the password matches the hash
+    } catch (err) {
 
-    console.log(username, password);
-    console.log(user);
+        console.log(err);
 
-    res.json({
-        success: true
-    })
-
+        res.json({
+            success: false,
+            error: "Unable to authenticate user."
+        })
+    }
 }
 
 module.exports = {
