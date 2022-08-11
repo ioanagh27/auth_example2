@@ -25,7 +25,7 @@ async function login(req, res) {
 
         console.log(err);
 
-        res.json({
+        res.status(401).json({
             success: false,
             error: "Unable to authenticate user."
         })
